@@ -17,6 +17,7 @@ def get_dailymotion_video_links(url):
         # Rechercher les balises <iframe> avec des liens Dailymotion
         for iframe in soup.find_all('iframe'):
             src = iframe.get('src')
+            # Vérifier si le src contient un lien de vidéo Dailymotion
             if src and 'dailymotion.com/embed/video/' in src:
                 video_links.append(src)  # Ajouter le lien vidéo à la liste
 
@@ -45,7 +46,7 @@ def add_videos_to_json(videos, video_json_file="video.json"):
         print(f"Les vidéos ont été ajoutées sous la clé 'nouveauter' dans {video_json_file}")
 
 # Exemple d'utilisation
-url = "https://www.dailymotion.com"  # Remplace cette URL par un lien de la page Dailymotion contenant des vidéos intégrées
+url = "https://www.dailymotion.com/video/x7vydf5"  # Exemple d'une vidéo Dailymotion spécifique
 
 # Récupérer les liens vidéo depuis le site
 videos = get_dailymotion_video_links(url)
