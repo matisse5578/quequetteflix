@@ -113,36 +113,24 @@
   </div>
 
   <!-- Bannière -->
-<div class="banner">
-  <h1>QUEQUETTE FLIX</h1>
-  <p>Parce que votre plaisir est notre priorité.</p>
-  <div style="margin: 20px auto; max-width: 560px; text-align: center;">
-    <iframe 
-      src="https://www.pornhub.com/embed/6702c2cf9d86e" 
-      width="100%" 
-      height="315" 
-      style="border: none; border-radius: 5px;" 
-      allowfullscreen>
-    </iframe>
+  <div class="banner">
+    <h1>QUEQUETTE FLIX</h1>
+    <p>Parce que votre plaisir est notre priorité.</p>
+    <div style="margin: 20px auto; max-width: 560px; text-align: center;">
+      <iframe 
+        src="https://www.pornhub.com/embed/6702c2cf9d86e" 
+        width="100%" 
+        height="315" 
+        style="border: none; border-radius: 5px;" 
+        allowfullscreen>
+      </iframe>
+    </div>
   </div>
-</div>
 
   <!-- Contenu principal -->
   <div class="container">
 
-    <div class="row">
-      <h2>Mechant renoi</h2>
-      <div class="row-posters">
-        <div class="poster"><iframe src="https://www.pornhub.com/embed/ph62d30fa109cea" allowfullscreen></iframe></div>
-        <div class="poster"><iframe src="https://www.pornhub.com/embed/63dc8cf2eb3ab" allowfullscreen></iframe></div>
-        <div class="poster"><iframe src="https://www.pornhub.com/embed/65ef7adc2a71e" allowfullscreen></iframe></div>
-        <div class="poster"><iframe src="https://www.pornhub.com/embed/ph6311027176ec4" allowfullscreen></iframe></div>
-        <div class="poster"><iframe src="https://www.pornhub.com/embed/ph5eac615280ee3" allowfullscreen></iframe></div>
-        <div class="poster"><iframe src="https://www.pornhub.com/embed/6532fb62bf06e" allowfullscreen></iframe></div>
-        <div class="poster"><iframe src="https://www.pornhub.com/embed/6435829cc883f" allowfullscreen></iframe></div>
-      </div>
-    </div>
-
+    <!-- Vidéos avec les filles -->
     <div class="row">
       <h2>Une femme c'est bien alors 2</h2>
       <div class="row-posters">
@@ -156,7 +144,51 @@
       </div>
     </div>
 
+    <!-- Vidéos "noir" -->
+    <div class="row">
+      <h2>Mechant renoi</h2>
+      <div class="row-posters">
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/ph62d30fa109cea" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/63dc8cf2eb3ab" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/65ef7adc2a71e" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/ph6311027176ec4" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/ph5eac615280ee3" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/6532fb62bf06e" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/6435829cc883f" allowfullscreen></iframe></div>
+      </div>
+    </div>
+
+    <!-- Section des nouveautés -->
+    <div class="row" id="nouveautes">
+      <h2>Les Nouveautés</h2>
+      <div class="row-posters" id="nouveauxVideos">
+        <!-- Les vidéos des nouveautés vont être ajoutées ici automatiquement -->
+      </div>
+    </div>
+
   </div>
+
+  <!-- Script pour charger les vidéos depuis le JSON -->
+  <script>
+    // Fonction pour charger les vidéos depuis le fichier JSON
+    async function chargerNouveauxVideos() {
+      const response = await fetch('videos.json'); // Le fichier JSON doit être dans le même dossier
+      const data = await response.json();
+
+      const nouveautesContainer = document.getElementById('nouveauxVideos');
+
+      // Pour chaque vidéo dans le fichier JSON, créer un nouvel élément et l'ajouter à la page
+      data.nouveautes.forEach(video => {
+        const videoElement = document.createElement('div');
+        videoElement.classList.add('poster');
+        videoElement.innerHTML = `<iframe src="${video.url}" allowfullscreen></iframe>`;
+        nouveautesContainer.appendChild(videoElement);
+      });
+    }
+
+    // Appel de la fonction pour charger les vidéos
+    chargerNouveauxVideos();
+  </script>
 
 </body>
 </html>
