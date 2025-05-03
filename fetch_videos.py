@@ -2,8 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
-# Fonction pour récupérer les vidéos YouTube intégrées via <iframe> sur un site
-def get_youtube_video_links(url):
+# Fonction pour récupérer les vidéos Dailymotion intégrées via <iframe> sur un site
+def get_dailymotion_video_links(url):
     # Faire une requête GET pour obtenir la page
     response = requests.get(url)
     
@@ -11,13 +11,13 @@ def get_youtube_video_links(url):
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # Liste pour stocker les liens vidéo YouTube
+        # Liste pour stocker les liens vidéo Dailymotion
         video_links = []
         
-        # Rechercher les balises <iframe> avec des liens YouTube
+        # Rechercher les balises <iframe> avec des liens Dailymotion
         for iframe in soup.find_all('iframe'):
             src = iframe.get('src')
-            if src and 'youtube.com/embed/' in src:
+            if src and 'dailymotion.com/embed/video/' in src:
                 video_links.append(src)  # Ajouter le lien vidéo à la liste
 
         return video_links
@@ -45,14 +45,14 @@ def add_videos_to_json(videos, video_json_file="video.json"):
         print(f"Les vidéos ont été ajoutées sous la clé 'nouveauter' dans {video_json_file}")
 
 # Exemple d'utilisation
-url = "https://www.example.com/videos"  # Remplace cette URL par l'URL d'un site contenant des vidéos YouTube intégrées via <iframe>
+url = "https://www.dailymotion.com"  # Remplace cette URL par un lien de la page Dailymotion contenant des vidéos intégrées
 
 # Récupérer les liens vidéo depuis le site
-videos = get_youtube_video_links(url)
+videos = get_dailymotion_video_links(url)
 
 if videos:
-    print("Vidéos YouTube trouvées :", videos)
+    print("Vidéos Dailymotion trouvées :", videos)
     # Ajouter les vidéos récupérées à video.json sous la clé "nouveauter"
     add_videos_to_json(videos)
 else:
-    print("Aucune vidéo YouTube trouvée sur la page.")
+    print("Aucune vidéo Dailymotion trouvée sur la page.")
