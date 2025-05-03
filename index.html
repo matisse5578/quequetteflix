@@ -159,8 +159,8 @@
     </div>
 
     <!-- Section des nouveautés -->
-    <div class="row" id="nouveautes">
-      <h2>Les Nouveautés</h2>
+    <div class="row" id="nouveauter">
+      <h2>Les Nouveauter</h2>
       <div class="row-posters" id="nouveauxVideos">
         <!-- Les vidéos des nouveautés vont être ajoutées ici automatiquement -->
       </div>
@@ -175,14 +175,14 @@
       const response = await fetch('videos.json'); // Le fichier JSON doit être dans le même dossier
       const data = await response.json();
 
-      const nouveautesContainer = document.getElementById('nouveauxVideos');
+      const nouveauterContainer = document.getElementById('nouveauxVideos');
 
       // Pour chaque vidéo dans le fichier JSON, créer un nouvel élément et l'ajouter à la page
-      data.nouveautes.forEach(video => {
+      data.nouveauter.forEach(video => {
         const videoElement = document.createElement('div');
         videoElement.classList.add('poster');
         videoElement.innerHTML = `<iframe src="${video.url}" allowfullscreen></iframe>`;
-        nouveautesContainer.appendChild(videoElement);
+        nouveauterContainer.appendChild(videoElement);
       });
     }
 
