@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QUEQUETTE FLIX</title>
   <style>
     body {
@@ -39,7 +39,7 @@
 
     .banner {
       background-color: #333;
-      padding: 100px 20px 40px;
+      padding: 120px 20px 40px;
       text-align: center;
     }
 
@@ -56,19 +56,14 @@
       margin-right: auto;
     }
 
-    .btn {
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      margin: 5px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1em;
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
     }
 
     .row {
-      padding: 20px;
+      margin-bottom: 40px;
     }
 
     .row h2 {
@@ -79,19 +74,33 @@
       display: flex;
       overflow-x: auto;
       gap: 10px;
+      padding-bottom: 10px;
     }
 
-    .poster video, .poster img {
-      width: 150px;
-      height: 220px;
+    .poster {
+      flex: 0 0 auto;
+      width: 300px;
+      max-width: 100%;
+    }
+
+    .poster iframe {
+      width: 100%;
+      height: 170px;
+      border: none;
       border-radius: 5px;
-      object-fit: cover;
     }
 
-    #maVideo {
-      display: none;
-      margin: 20px auto;
-      display: block;
+    .row-posters::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .row-posters::-webkit-scrollbar-thumb {
+      background: #666;
+      border-radius: 3px;
+    }
+
+    .row-posters::-webkit-scrollbar-track {
+      background: #222;
     }
   </style>
 </head>
@@ -106,74 +115,42 @@
   <!-- Bannière -->
   <div class="banner">
     <h1>QUEQUETTE FLIX</h1>
-    <p>parceque votre plaisir est notre prioriter.</p>
-
-    <!-- Vidéo masquée, lancée au clic -->
-      <iframe src="https://www.pornhub.com/embed/6702c2cf9d86e" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
-  </div>
-
-  <!-- Liste de films -->
-  <div class="row">
-    <h2>Mechant renoi</h2>
-    <div class="row-posters">
-      <div class="poster">
-        <iframe src="https://www.pornhub.com/embed/ph62d30fa109cea" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
-      </div>
-      <div class="poster">
-        <iframe src="https://www.pornhub.com/embed/63dc8cf2eb3ab" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
-      </div>
-      <div class="poster">
-        <iframe src="https://www.pornhub.com/embed/65ef7adc2a71e" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
-      </div>
-      <div class="poster">
-        <iframe src="https://www.pornhub.com/embed/ph6311027176ec4" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
-      </div>
-      <div class="poster">
-        <iframe src="https://www.pornhub.com/embed/ph5eac615280ee3" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>  
-      </div>
-      <div class="poster">
-          <iframe src="https://www.pornhub.com/embed/6532fb62bf06e" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
-      </div> 
-      <div class="poster">
-          <iframe src="https://www.pornhub.com/embed/6435829cc883f" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
-      </div>
+    <p>Parce que votre plaisir est notre priorité.</p>
+    <div class="poster" style="margin-top: 20px;">
+      <iframe src="https://www.pornhub.com/embed/6702c2cf9d86e" allowfullscreen></iframe>
     </div>
   </div>
 
-<div class="row">
-    <h2>Une femme c'est bien alors 2 </h2>
-    <div class="row-posters">
-      <div class="poster">
-        <iframe src="https://www.pornhub.com/embed/665056cee608a" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
-      </div>
-      <div class="poster">
-        <iframe src="https://www.pornhub.com/embed/ph5d78ffbe2653c" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
-      </div>
-      <div class="poster">
-        <iframe src="https://www.pornhub.com/embed/66ff104203ab3" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
-      </div>
-      <div class="poster">
-        <iframe src="https://www.pornhub.com/embed/677b25d32ad88" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
-      </div>
-      <div class="poster">
-        <iframe src="https://www.pornhub.com/embed/65cc4dd305b90" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
-      </div>
-      <div class="poster">
-          <iframe src="https://www.pornhub.com/embed/66e8d077633cf" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
-      </div> 
-      <div class="poster">
-          <iframe src="https://www.pornhub.com/embed/679a59c5d1d32" frameborder="0" width="560" height="315" scrolling="no" allowfullscreen></iframe>
+  <!-- Contenu principal -->
+  <div class="container">
+
+    <div class="row">
+      <h2>Mechant renoi</h2>
+      <div class="row-posters">
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/ph62d30fa109cea" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/63dc8cf2eb3ab" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/65ef7adc2a71e" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/ph6311027176ec4" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/ph5eac615280ee3" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/6532fb62bf06e" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/6435829cc883f" allowfullscreen></iframe></div>
       </div>
     </div>
-  </div>
 
-  <script>
-    function lancerVideo() {
-      const video = document.getElementById('maVideo');
-      video.style.display = 'block';
-      video.play();
-    }
-  </script>
+    <div class="row">
+      <h2>Une femme c'est bien alors 2</h2>
+      <div class="row-posters">
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/665056cee608a" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/ph5d78ffbe2653c" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/66ff104203ab3" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/677b25d32ad88" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/65cc4dd305b90" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/66e8d077633cf" allowfullscreen></iframe></div>
+        <div class="poster"><iframe src="https://www.pornhub.com/embed/679a59c5d1d32" allowfullscreen></iframe></div>
+      </div>
+    </div>
+
+  </div>
 
 </body>
 </html>
