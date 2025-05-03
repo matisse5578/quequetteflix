@@ -1,18 +1,30 @@
-# Ouvrir index.html et ajouter les vidéos dans le contenu
-with open('index.html', 'r') as file:
-    html_content = file.read()
+import json
 
-# Ajouter les vidéos récupérées à la fin du fichier HTML
+# Charger les vidéos depuis le fichier JSON
+with open('videos.json', 'r') as f:
+    videos = json.load(f)
+
+# Lire le contenu de index.html
+with open('index.html', 'r') as f:
+    html_content = f.read()
+
+# Trouver l'endroit où insérer les vidéos
+# Ici, on va les insérer dans une div avec la classe 'videos-container'
+videos_html = ""
 for video in videos:
-    iframe_html = f'<div class="poster" style="margin: 20px auto; max-width: 560px; text-align: center;">\n' \
-                  f'  <iframe src="{video["url"]}" width="100%" height="315" style="border: none; border-radius: 5px;" allowfullscreen></iframe>\n' \
-                  f'</div>\n'
-    html_content += iframe_html
+    iframe_html = f'''
+    <div class="poster" style="margin: 20px auto; max-width: 560px; text-align: center;">
+        <iframe src="{video['url']}" width="100%" height="315" style="border: none; border-radius: 5px;" allowfullscreen></iframe>
+    </div>
+    '''
+    videos_html += iframe_html
+
+# Insérer les vidéos dans la section appropriée du fichier HTML
+# Par exemple, si tu veux insérer les vidéos après une certaine balise, tu peux faire une substitution
+html_content = html_content.replace('<!-- VIDEOS_PLACEHOLDER -->', videos_html)
 
 # Sauvegarder le fichier index.html mis à jour
-with open('index.html', 'w') as file:
-    file.write(html_content)
+with open('index.html', 'w') as f:
+    f.write(html_content)
 
-print("Le fichier index.html a été mis à jour avec les nouvelles vidéos.")
-
-
+print("Les vidéos ont été insérées dans 'index.html'.")
