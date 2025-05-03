@@ -33,16 +33,16 @@ def add_videos_to_json(videos, video_json_file="video.json"):
             data = json.load(f)
     except FileNotFoundError:
         # Si le fichier n'existe pas, créer une structure de base
-        data = {"videos": []}
+        data = {"nouveauter": []}  # Utiliser "nouveauter" comme clé
     
-    # Ajouter les nouvelles vidéos à la liste
+    # Ajouter les nouvelles vidéos à la liste sous la clé "nouveauter"
     for video in videos:
-        data["videos"].append({"url": video})
+        data["nouveauter"].append({"url": video})
     
     # Sauvegarder les données mises à jour dans le fichier JSON
     with open(video_json_file, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
-        print(f"Les vidéos ont été ajoutées au fichier {video_json_file}")
+        print(f"Les vidéos ont été ajoutées sous la clé 'nouveauter' dans {video_json_file}")
 
 # Exemple d'utilisation
 url = "https://exemple.com"  # Remplace cette URL par l'URL du site contenant des vidéos YouTube intégrées
@@ -52,7 +52,7 @@ videos = get_youtube_video_links(url)
 
 if videos:
     print("Vidéos YouTube trouvées :", videos)
-    # Ajouter les vidéos récupérées à video.json
+    # Ajouter les vidéos récupérées à video.json sous la clé "nouveauter"
     add_videos_to_json(videos)
 else:
     print("Aucune vidéo YouTube trouvée sur la page.")
