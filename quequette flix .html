@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QUEQUETTE FLIX</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Barre de navigation -->
+  <div class="navbar">
+    <div class="logo">QUEQUETTE FLIX</div>
+    <div class="avatar"></div>
+  </div>
+
+  <!-- Bannière -->
+  <div class="banner">
+    <h1>QUEQUETTE FLIX</h1>
+    <p>Parce que votre plaisir est notre priorité.</p>
+    <button class="btn" onclick="lancerVideo()">Découvrir</button>
+  </div>
+
+  <!-- Section de films -->
+  <div class="row">
+    <h2>Recommandés pour vous</h2>
+    <div class="row-posters">
+      <div class="poster"><img src="https://via.placeholder.com/150x220" alt="Film 1" /></div>
+      <div class="poster"><img src="https://via.placeholder.com/150x220" alt="Film 2" /></div>
+      <div class="poster"><img src="https://via.placeholder.com/150x220" alt="Film 3" /></div>
+      <div class="poster"><img src="https://via.placeholder.com/150x220" alt="Film 4" /></div>
+      <div class="poster"><img src="https://via.placeholder.com/150x220" alt="Film 5" /></div>
+    </div>
+  </div>
+
+  <video id="maVideo" width="560" height="315" controls></video>
+
+  <script src="script.js"></script>
+</body>
+</html>
