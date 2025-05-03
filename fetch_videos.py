@@ -45,7 +45,7 @@ def add_videos_to_json(videos, video_json_file="video.json"):
         print(f"Les vidéos ont été ajoutées sous la clé 'nouveauter' dans {video_json_file}")
 
 # Exemple d'utilisation
-url ="https://www.youtube.com/watch?v=dQw4w9WgXcQ"  # Remplace cette URL par l'URL du site contenant des vidéos YouTube intégrées
+url = "https://www.example.com/videos"  # Remplace cette URL par l'URL d'un site contenant des vidéos YouTube intégrées via <iframe>
 
 # Récupérer les liens vidéo depuis le site
 videos = get_youtube_video_links(url)
