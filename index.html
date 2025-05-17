@@ -13,7 +13,7 @@
     gtag('config', 'G-2RJ77TS7EB');
   </script>
   <style>
-    body {
+     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #141414;
@@ -178,23 +178,19 @@
 
   <!-- Barre de navigation -->
   <div class="navbar">
-    <div class="logo">QUEQUETTE FLIX</div>
-    <div class="search-container">
-        <p id="noResults" style="display: none; text-align: center; margin-top: 20px; font-size: 1.2rem; color: gray;">
-  Desoler j ai pas ce que tu cherche mon coco.
-</p>
-
-      <input type="text" placeholder="rechercher..." id="searchInput" />
-      <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24">
-        <path d="M21 20l-5.6-5.6a7 7 0 1 0-1.4 1.4L20 21zM10 16a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/>
-      </svg>
-      <div class="avatar"></div>
-    </div>
+  <div class="logo">QUEQUETTE FLIX</div>
+  <div class="search-container">
+    <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24" onclick="toggleSearch()">
+      <path d="M21 20l-5.6-5.6a7 7 0 1 0-1.4 1.4L20 21zM10 16a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/>
+    </svg>
+    <input type="text" placeholder="rechercher..." id="searchInput" style="display:none;" />
+    <div class="avatar"></div>
   </div>
+</div>
 
   <!-- Bannière -->
   <div class="banner">
-    <h1>QUEQUETTE FLIX</h1>
+     <h1>QUEQUETTE FLIX</h1>
     <p>Parce que votre plaisir est notre priorité.</p>
     <div style="margin: 20px auto; max-width: 560px; text-align: center;">
       <iframe
@@ -731,6 +727,16 @@
     });
   });
 </script>
+<script>
+  function toggleSearch() {
+    const input = document.getElementById('searchInput');
+    input.style.display = input.style.display === 'block' ? 'none' : 'block';
+    if (input.style.display === 'block') {
+      input.focus();
+    }
+  }
+</script>
+
 
   </body> 
 </html>
