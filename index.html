@@ -19,6 +19,7 @@
       background-color: #141414;
       color: white;
     }
+
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -30,26 +31,58 @@
       top: 0;
       z-index: 100;
     }
+
     .logo {
       font-size: 1.5em;
       font-weight: bold;
       color: red;
     }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-container input[type="text"] {
+      background-color: #000;
+      color: #ccc;
+      border: 1px solid #444;
+      padding: 8px 12px;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .search-container input::placeholder {
+      color: #666;
+    }
+
+    .search-icon {
+      width: 24px;
+      height: 24px;
+      fill: #ccc;
+      cursor: pointer;
+    }
+
     .avatar {
       width: 30px;
       height: 30px;
       background-color: white;
       border-radius: 50%;
+      margin-left: 15px;
     }
+
     .banner {
       background-color: #333;
       padding: 120px 20px 40px;
       text-align: center;
     }
+
     .banner h1 {
       font-size: 3em;
       margin-bottom: 10px;
     }
+
     .banner p {
       font-size: 1.2em;
       margin-bottom: 20px;
@@ -57,41 +90,50 @@
       margin-left: auto;
       margin-right: auto;
     }
+
     .container {
       max-width: 1200px;
       margin: auto;
       padding: 20px;
     }
+
     .row {
       margin-bottom: 40px;
     }
+
     .row h2 {
       margin-bottom: 10px;
     }
+
     .row-posters {
       display: flex;
       overflow-x: auto;
       gap: 10px;
       padding-bottom: 10px;
     }
+
     .poster {
       flex: 0 0 auto;
       width: 300px;
       max-width: 100%;
     }
+
     .poster iframe {
       width: 100%;
       height: 170px;
       border: none;
       border-radius: 5px;
     }
+
     .row-posters::-webkit-scrollbar {
       height: 6px;
     }
+
     .row-posters::-webkit-scrollbar-thumb {
       background: #666;
       border-radius: 3px;
     }
+
     .row-posters::-webkit-scrollbar-track {
       background: #222;
     }
@@ -116,10 +158,10 @@
     padding: 20px;
   ">
     <h2 style="font-size: 2rem;">HOP HOP HOP</h2>
-    <p style="margin-top: 10px;">t es vraiment sur d avoir l age de te lustrer de bazouzou ??</p>
+    <p style="margin-top: 10px;">t'es vraiment sûr d’avoir l'âge de te lustrer la bazouzou ?</p>
     <div style="margin-top: 20px;">
-      <button onclick="enterSite(true)" style="padding: 10px 25px; margin: 10px; font-size: 1rem;background-color: red; color: white; border: none; border-radius: 5px;">Oui je peut me le lustrer</button>
-      <button onclick="enterSite(false)" style="padding: 10px 25px; margin: 10px; font-size: 1rem;background-color: red; color: white; border: none; border-radius: 5px;">Non je retour sur gulli</button>
+      <button onclick="enterSite(true)" style="padding: 10px 25px; margin: 10px; font-size: 1rem;background-color: red; color: white; border: none; border-radius: 5px;">Oui je peux me le lustrer</button>
+      <button onclick="enterSite(false)" style="padding: 10px 25px; margin: 10px; font-size: 1rem;background-color: red; color: white; border: none; border-radius: 5px;">Non je retourne sur Gulli</button>
     </div>
   </div>
 
@@ -137,8 +179,19 @@
   <!-- Barre de navigation -->
   <div class="navbar">
     <div class="logo">QUEQUETTE FLIX</div>
-    <div class="avatar"></div>
+    <div class="search-container">
+        <p id="noResults" style="display: none; text-align: center; margin-top: 20px; font-size: 1.2rem; color: gray;">
+  Desoler j ai pas ce que tu cherche mon coco.
+</p>
+
+      <input type="text" placeholder="rechercher..." id="searchInput" />
+      <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" viewBox="0 0 24 24">
+        <path d="M21 20l-5.6-5.6a7 7 0 1 0-1.4 1.4L20 21zM10 16a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/>
+      </svg>
+      <div class="avatar"></div>
+    </div>
   </div>
+
   <!-- Bannière -->
   <div class="banner">
     <h1>QUEQUETTE FLIX</h1>
@@ -156,7 +209,7 @@
   <!-- Contenu principal -->
   <div class="container">
     <!-- Vidéos avec les filles -->
-    <div class="row">
+    <div class="row" data-keywords="femme,lesbienne,woman">
       <h2>Une femme c'est bien alors 2</h2>
       <div class="row-posters">
         <div class="poster">
@@ -183,7 +236,7 @@
       </div>
     </div>
     <!-- Vidéos "noir" -->
-    <div class="row">
+    <div class="row" data-keywords="grosse bite,noir,mechant">
       <h2>Méchant renoi</h2>
       <div class="row-posters">
         <div class="poster">
@@ -210,7 +263,7 @@
       </div>
     </div>
     <!-- Ajout de nouvelles catégories -->
-    <div class="row">
+    <div class="row" data-keywords="main dans le cul,jsp">
       <h2>j ai pas d inspi mais mechante fouille archeologique la premiere</h2>
       <div class="row-posters">
         <div class="poster">
@@ -227,7 +280,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" data-keywords="cul,ass,">
       <h2>Dans le cul mon copain</h2>
       <div class="row-posters">
         <div class="poster">
@@ -259,7 +312,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" data-keywords="asiatique,chinoise,riz">
       <h2>apres avoir bouffer des chats sa bouffe des bites</h2>
       <div class="row-posters">
         <div class="poster">
@@ -297,7 +350,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" data-keywords="attacher,cave">
       <h2>BDSM c est un delire bizarre mais c est un delire</h2>
       <div class="row-posters">
         <div class="poster">
@@ -329,7 +382,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" data-keywords="femme,brune">
       <h2>Brunette</h2>
       <div class="row-posters">
         <div class="poster">
@@ -364,7 +417,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" data-keywords="cousine,louis,famille">
       <h2>la categorie prefere de louis (les cousines)</h2>
       <div class="row-posters">
         <div class="poster">
@@ -405,7 +458,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" data-keywords="jus de femme ,ejaculation">
       <h2>un vrai geyser</h2>
       <div class="row-posters">
         <div class="poster">
@@ -637,6 +690,47 @@
         iframes.forEach(iframe => observer.observe(iframe));
       });
     </script>
+   <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Lazy loading
+    const iframes = document.querySelectorAll("iframe[data-src]");
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const iframe = entry.target;
+          iframe.src = iframe.dataset.src;
+          observer.unobserve(iframe);
+        }
+      });
+    });
+    iframes.forEach(iframe => observer.observe(iframe));
+
+    // Recherche
+    const searchInput = document.getElementById("searchInput");
+    const noResults = document.getElementById("noResults");
+
+    searchInput.addEventListener("input", function () {
+      const searchValue = searchInput.value.toLowerCase().trim();
+      const rows = document.querySelectorAll(".row");
+
+      let found = false;
+
+      rows.forEach(row => {
+        const title = row.querySelector("h2")?.textContent.toLowerCase() || "";
+        const keywords = row.dataset.keywords?.toLowerCase() || "";
+
+        if (title.includes(searchValue) || keywords.includes(searchValue)) {
+          row.style.display = "block";
+          found = true;
+        } else {
+          row.style.display = "none";
+        }
+      });
+
+      noResults.style.display = found ? "none" : "block";
+    });
+  });
+</script>
 
   </body> 
 </html>
